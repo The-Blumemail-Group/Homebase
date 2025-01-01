@@ -97,7 +97,7 @@ We welcome contributions to Blumemail's homepage! To get started:
 ---
 
 ## License
-This project is licensed under the Creative Commons Zero Universal. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU LGPL. See the [LICENSE](LICENSE) file for details.
 
 ---
 
