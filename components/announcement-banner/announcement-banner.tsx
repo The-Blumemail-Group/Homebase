@@ -13,8 +13,6 @@ import {
 import {
   Banner,
   BannerActions,
-  BannerContent,
-  BannerDescription,
   BannerTitle,
 } from "@saas-ui/react";
 import { FiArrowRight } from "react-icons/fi";
@@ -22,7 +20,6 @@ import { FallInPlace } from "../motion/fall-in-place";
 
 export interface AnnouncementBannerProps {
   title: string;
-  description: string;
   href: string;
   action?: string;
 }
@@ -30,7 +27,7 @@ export interface AnnouncementBannerProps {
 export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
   props
 ) => {
-  const { title, description, href, action } = props;
+  const { title, href, action } = props;
   if (!title) {
     return null;
   }
@@ -85,10 +82,6 @@ export const AnnouncementBanner: React.FC<AnnouncementBannerProps> = (
                 <BannerTitle fontWeight="semibold" noOfLines={1}>
                   {title}
                 </BannerTitle>
-                <BannerDescription
-                  display={{ base: "none", md: "block" }}
-                  dangerouslySetInnerHTML={{ __html: description }}
-                />
 
                 {action && (
                   <BannerActions>

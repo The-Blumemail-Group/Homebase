@@ -50,6 +50,7 @@ import {
   HighlightsItem,
   HighlightsTestimonialItem,
 } from '#components/highlights'
+import { AnnouncementBanner } from '#components/announcement-banner'
 import { ChakraLogo, NextjsLogo } from '#components/logos'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import { Pricing } from '#components/pricing/pricing'
@@ -60,13 +61,20 @@ import pricing from '#data/pricing'
 import testimonials from '#data/testimonials'
 
 export const meta: Metadata = {
-  title: 'Saas UI Landingspage',
-  description: 'Free SaaS landingspage starter kit',
+  title: 'Blumemail',
+  description: 'Safety and privacy in the 21st century.',
 }
 
 const Home: NextPage = () => {
   return (
     <Box>
+      <AnnouncementBanner 
+        title={'Coming soon: a note sharing platform by Blumemail.'}
+        href={'https://blumemail.net/2024/12/26/coming-soon-a-note-sharing-platform-by-blumemail/'} />
+        {/* 
+          Note that the announcement banner is going to be used like it is above, but when we get our blog setup, announements with more text will be linked to those blog posts!
+        */}
+      
       <HeroSection />
 
       <HighlightsSection />
@@ -94,15 +102,15 @@ const HeroSection: React.FC = () => {
             px="0"
             title={
               <FallInPlace>
-                Build beautiful
-                <Br /> software faster
+                Your Privacy,
+                <Br /> Our Priority.
               </FallInPlace>
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
-                Saas UI is a <Em>React component library</Em>
-                <Br /> that doesn&apos;t get in your way and helps you <Br />{' '}
-                build intuitive SaaS products with speed.
+                Securely share notes and emails with
+                <Br /> peace of mind. End-to-end encryption <Br />{' '}
+                for your most sensitive communications.
               </FallInPlace>
             }
           >
