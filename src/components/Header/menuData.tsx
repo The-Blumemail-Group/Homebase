@@ -16,7 +16,7 @@ const menuData: Menu[] = [
   {
     id: 33,
     title: "Blog",
-    path: "/blog",
+    path: "https://blog.blumemail.net",
     newTab: false,
   },
   {

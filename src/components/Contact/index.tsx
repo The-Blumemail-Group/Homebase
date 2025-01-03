@@ -1,4 +1,5 @@
 import NewsLatterBox from "./NewsLatterBox";
+import Script from 'next/script';
 
 const Contact = () => {
   return (
@@ -17,10 +18,11 @@ const Contact = () => {
               <p className="mb-12 text-base font-medium text-body-color">
                 Our support team will get back to you ASAP via email.
               </p>
-              <form>
+              <form action="https://formsubmit.co/27c1ddc672bb0e73bd615b4ca1b29ab0" method="POST">
                 <div className="-mx-4 flex flex-wrap">
                   <div className="w-full px-4 md:w-1/2">
                     <div className="mb-8">
+                    <input type="hidden" name="_captcha" value="false" />
                       <label
                         htmlFor="name"
                         className="mb-3 block text-sm font-medium text-dark dark:text-white"
