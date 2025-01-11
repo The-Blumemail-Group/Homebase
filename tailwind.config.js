@@ -1,81 +1,111 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
-const colors = require("tailwindcss/colors");
-
 module.exports = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  darkMode: "class",
-  theme: {
-    container: {
-      center: true,
-      padding: "1rem",
-    },
+	content: [
+		"./app/**/*.{js,ts,jsx,tsx}",
+		"./mdx-components.tsx",
+		"content/**/*.mdx",
+	],
 
-    screens: {
-      xs: "450px",
-      // => @media (min-width: 450px) { ... }
+	theme: {
+		extend: {
+			typography: {
+				DEFAULT: {
+					css: {
+						"code::before": {
+							content: '""',
+						},
+						"code::after": {
+							content: '""',
+						},
+					},
+				},
+				quoteless: {
+					css: {
+						"blockquote p:first-of-type::before": { content: "none" },
+						"blockquote p:first-of-type::after": { content: "none" },
+					},
+				},
+			},
+			fontFamily: {
+				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+				display: ["var(--font-calsans)"],
+			},
+			backgroundImage: {
+				"gradient-radial":
+					"radial-gradient(50% 50% at 50% 50%, var(--tw-gradient-stops))",
+			},
+			animation: {
+				"fade-in": "fade-in 3s ease-in-out forwards",
+				title: "title 3s ease-out forwards",
+				"fade-left": "fade-left 3s ease-in-out forwards",
+				"fade-right": "fade-right 3s ease-in-out forwards",
+			},
+			keyframes: {
+				"fade-in": {
+					"0%": {
+						opacity: "0%",
+					},
+					"75%": {
+						opacity: "0%",
+					},
+					"100%": {
+						opacity: "100%",
+					},
+				},
+				"fade-left": {
+					"0%": {
+						transform: "translateX(100%)",
+						opacity: "0%",
+					},
 
-      sm: "575px",
-      // => @media (min-width: 576px) { ... }
+					"30%": {
+						transform: "translateX(0%)",
+						opacity: "100%",
+					},
+					"100%": {
+						opacity: "0%",
+					},
+				},
+				"fade-right": {
+					"0%": {
+						transform: "translateX(-100%)",
+						opacity: "0%",
+					},
 
-      md: "768px",
-      // => @media (min-width: 768px) { ... }
+					"30%": {
+						transform: "translateX(0%)",
+						opacity: "100%",
+					},
+					"100%": {
+						opacity: "0%",
+					},
+				},
+				title: {
+					"0%": {
+						"line-height": "0%",
+						"letter-spacing": "0.25em",
+						opacity: "0",
+					},
+					"25%": {
+						"line-height": "0%",
+						opacity: "0%",
+					},
+					"80%": {
+						opacity: "100%",
+					},
 
-      lg: "992px",
-      // => @media (min-width: 992px) { ... }
-
-      xl: "1200px",
-      // => @media (min-width: 1200px) { ... }
-
-      "2xl": "1400px",
-      // => @media (min-width: 1400px) { ... }
-    },
-    extend: {
-      colors: {
-        current: "currentColor",
-        transparent: "transparent",
-        white: "#FFFFFF",
-        black: "#121723",
-        dark: "#1D2430",
-        primary: "#4A6CF7",
-        yellow: "#FBB040",
-        "bg-color-dark": "#171C28",
-        "body-color": {
-          DEFAULT: "#788293",
-          dark: "#959CB1",
-        },
-        stroke: {
-          stroke: "#E3E8EF",
-          dark: "#353943",
-        },
-        gray: {
-          ...colors.gray,
-          dark: "#1E232E",
-          light: "#F0F2F9",
-        },
-      },
-
-      boxShadow: {
-        signUp: "0px 5px 10px rgba(4, 10, 34, 0.2)",
-        one: "0px 2px 3px rgba(7, 7, 77, 0.05)",
-        two: "0px 5px 10px rgba(6, 8, 15, 0.1)",
-        three: "0px 5px 15px rgba(6, 8, 15, 0.05)",
-        sticky: "inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)",
-        "sticky-dark": "inset 0 -1px 0 0 rgba(255, 255, 255, 0.1)",
-        "feature-2": "0px 10px 40px rgba(48, 86, 211, 0.12)",
-        submit: "0px 5px 20px rgba(4, 10, 34, 0.1)",
-        "submit-dark": "0px 5px 20px rgba(4, 10, 34, 0.1)",
-        btn: "0px 1px 2px rgba(4, 10, 34, 0.15)",
-        "btn-hover": "0px 1px 2px rgba(0, 0, 0, 0.15)",
-        "btn-light": "0px 1px 2px rgba(0, 0, 0, 0.1)",
-      },
-      dropShadow: {
-        three: "0px 5px 15px rgba(6, 8, 15, 0.05)",
-      },
-    },
-  },
-  plugins: [],
+					"100%": {
+						"line-height": "100%",
+						opacity: "100%",
+					},
+				},
+			},
+		},
+	},
+	plugins: [
+		require("@tailwindcss/typography"),
+		require("tailwindcss-debug-screens"),
+	],
 };
