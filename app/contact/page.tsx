@@ -7,9 +7,9 @@ import { Card } from "../components/card";
 const socials = [
 	{
 		icon: <Linkedin size={20} />,
-		href: "https://www.linkedin.com/company/blumemail/posts/?feedView=all",
+		href: "https://www.linkedin.com/company/sparkmask/posts/?feedView=all",
 		label: "LinkedIn",
-		handle: "Blumemail",
+		handle: "SparkMask",
 	},
 	{
 		icon: <Mail size={20} />,
