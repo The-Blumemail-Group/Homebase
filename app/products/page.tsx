@@ -9,15 +9,15 @@ import { Article } from "./article";
 export const revalidate = 60;
 export default async function ProjectsPage() {
 
-  const featured = allProducts.find((project) => project.slug === "blumemail")!;
-  // const top2 = allProducts.find((project) => project.slug === "planetfall")!;
+  const featured = allProducts.find((project) => project.slug === "about-us")!;
+  const top2 = allProducts.find((project) => project.slug === "blumemail")!;
   // const top3 = allProducts.find((project) => project.slug === "highstorm")!;
   const sorted = allProducts
     .filter((p) => p.published)
     .filter(
       (product) =>
-        product.slug !== featured.slug
-        //project.slug !== top2.slug &&
+        product.slug !== featured.slug &&
+        product.slug !== top2.slug
         // project.slug !== top3.slug,
     )
     .sort(
@@ -35,7 +35,7 @@ export default async function ProjectsPage() {
             Our Products &amp; Services.
           </h2>
           <p className="mt-4 text-zinc-400">
-            Some of the projects are from work and some are on my own time.
+            We strive to be open-source and transparent, and this page gives you a way to view that vision. 
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
@@ -67,23 +67,18 @@ export default async function ProjectsPage() {
                 <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                   {featured.description}
                 </p>
-                <div className="absolute bottom-4 md:bottom-8">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                    Read more <span aria-hidden="true">&rarr;</span>
-                  </p>
-                </div>
               </article>
             </Link>
           </Card>
 
-          {/*<div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((project) => (
+          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+            {[top2].map((project) => (
               <Card key={project.slug}>
-                <Article project={project} />
+                <Article product={project} />
               </Card>
             ))}
           </div>
-          */}
+
         </div>
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
