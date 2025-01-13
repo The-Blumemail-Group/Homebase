@@ -46,6 +46,12 @@ export const Navigation: React.FC = () => {
 						>
 							About Us
 						</Link>
+						<Link
+							href="https://blog.sparkmask.com"
+							className="duration=200 text-zinc-400 hover:text-zinc-100"
+						>
+							Blog
+						</Link>
 					</div>
 
 					<Link
